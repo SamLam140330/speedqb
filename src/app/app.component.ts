@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
@@ -9,6 +9,10 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'speedqb';
+export class AppComponent implements OnInit {
+  constructor(private _elementRef: ElementRef) { }
+
+  ngOnInit(): void {
+    this._elementRef.nativeElement.removeAttribute("ng-version");
+  }
 }
